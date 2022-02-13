@@ -1,0 +1,192 @@
+\documentclass{article}
+
+\usepackage[russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{authblk}
+\usepackage[T1]{fontenc}
+
+\title{Code Style}
+\author{Егоренко Н.И. ИА-031}
+\affil{email: kotkit555@gmail.com,  github: @FrenkyFix}
+\date{Февраль 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{C/C++}
+\subsection{Отступы}
+В начале строки отступ равен 4 пробелам. Отступ между ключевым словом и открывающей скобкой, отступ после знаков препинаний, отступ перед оператором сравнения и после него равны 1 пробелу:\\\\
+\newcommand*{\Tab}{\hspace*{0.5cm}}
+\begin{center}
+\begin{tabular}{ | l | }
+\hline
+\\
+int main() \{\\
+\Tab int number;\\
+\Tab if (number);\\
+\Tab for (int i = 0; i < 9; i++) \{\\
+\Tab\Tab ...;\\
+\Tab \}\\
+\}\\\\
+\hline
+\end{tabular}
+\end{center}
+\newpage
+\subsection{Библиотеки и константы}
+Библиотеки и константы отделены от функций пустой строкой. Сами библиотеки и константы тоже разделены пустой строкой:
+\begin{center}
+\begin{tabular}{ | l | }
+\hline
+\\
+\#include <iostream> \\\\
+\#define MAX = 5 \\\\
+int main() \{\\
+\Tab ...\\
+\}\\\\
+\hline
+\end{tabular}
+\end{center}
+\\\\
+\subsection{Функции}
+В объявлении функций стоит учитывать последовательность применения этих функций, чтобы избежать ошибок.\\
+Между функциями ставится пустая строка.\\
+Закрывающая скобка ставится на том же уровне, что и начало функции, к которой она принадлежит:\\
+\begin{center}
+\begin{tabular}{ | l | }
+
+\hline
+\\
+void do\_something(double number) \{\\
+    \Tab ...\\
+\}\\\\
+
+void print\_something(double number) \{\\
+    \Tab ...\\
+\}\\\\
+
+void program(string *buffer) \{\\
+    \Tab ...\\
+	\Tab do\_something(number);\\
+	\Tab ...\\
+	\Tab print\_something(number);\\
+	\Tab ...\\
+
+\}\\
+\\
+\hline
+
+\end{tabular}
+\end{center}
+\\\\
+\newpage
+\subsection{Циклы}\\
+Оператор и параметры цикла разделяются пробелом. Для инициализации счетчика циклов используются переменные i, j, k: \\\\
+\large \textbf{for}\\\\
+\normalsize
+\begin{left}
+\begin{tabular}{ | l | }
+
+\hline
+\\
+for (int i = 0; i < 3; i++) \{\\
+         \Tab for (int j = 0; j < 3; j++) \{\\
+               \Tab\Tab ...; \\
+           \Tab \} \\
+\}
+\\\\
+\hline
+
+\end{tabular}
+\end{left}
+\\\\
+\\\large \textbf{while}\\\\
+\normalsize
+\begin{left}
+\begin{tabular}{ | l | }
+
+\hline
+\\
+while (i < 3) \{\\
+               \Tab ...; \\
+\}
+\\\\
+\hline
+
+\end{tabular}
+\\\\
+\end{left}\\\\
+\\\large \textbf{do while}\\\\
+\begin{left}
+\begin{tabular}{ | l | }
+
+\hline
+\\
+do \{\\
+               \Tab ...; \\
+        \} while (i < 3);
+\\\\
+\hline
+
+\end{tabular}
+\\\\
+\end{left}
+\newpage
+\subsection{switch}
+Перед каждым вариантом ставится отступ в 4 пробела. После ключевого слова переход на новую строку с двойным отступом вначале:\\
+\begin{center}
+\begin{tabular}{ | l | }
+
+\hline
+\\
+switch (number) \{\\
+    \Tab case 1:\\
+        \Tab\Tab cout << \verb|"|first\verb|"| << endl;\\ 
+        \Tab\Tab break;\\
+    \Tab case 2:\\
+        \Tab\Tab cout << \verb|"|second\verb|"| << endl;\\ 
+        \Tab\Tab break;\\
+\}
+\\\\
+\hline
+
+\end{tabular}
+\end{center}
+\\\\
+\subsection{if}
+if и else начинаются с новых строк. Если в условии только одно действие, то оно пишется на строке с if/else.\\
+\begin{center}
+\begin{tabular}{ | l | }
+
+\hline
+\\
+\Tab if (a < b) \{\\
+    \Tab\Tab a += 3;\\
+    \Tab\Tab b += 5;\\
+\Tab \}\\
+\Tab if (a >= b) \Tab return a;\\
+\Tab else if (b >= 12) \Tab return b;\\
+\\
+\hline
+
+\end{tabular}
+\end{center}
+\\\\
+\newpage
+\subsection{Структуры}
+Структуры объявляются с помощью typedef для удобства. Названия структур пишутся с заглавной буквы:\\
+\begin{center}
+\begin{tabular}{ | l | }
+
+\hline
+\\typedef struct Node \{\\
+    \Tab ...\\
+\} Node;
+\\\\
+\hline
+
+\end{tabular}
+\end{center}
+
+\end{document}
